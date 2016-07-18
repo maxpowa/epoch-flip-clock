@@ -4,15 +4,32 @@ html, body {
 }
 
 body {
-  display: flex;
   margin: 0;
   padding: 0;
   font-family: '-apple-system', sans-serif;
-  align-items: center;
-  justify-content: center;
   background-color: black;
   perspective: 100vw;
   -webkit-text-smoothing: anti-aliased;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  color: white;
+}
+
+#ticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #6a6a6a;
+  text-align: center;
 }
 
 digit {
@@ -22,9 +39,9 @@ digit {
   margin: 0 0.25vw;
   -webkit-backface-visibility: hidden;
 }
-
 /* Flip Flaps
 ------------------------------------------------*/
+
 flap-top,
 flap-top-flip,
 flap-bottom,
@@ -38,15 +55,17 @@ flap-bottom-flip {
   justify-content: center;
   overflow: hidden;
   color: #e1e1e1;
-  background-color: rgb(12,12,12);
-  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.04);
+  background-color: rgb(12, 12, 12);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
   -webkit-backface-visibility: hidden;
 }
+
 flap-top,
 flap-top-flip {
   top: 0;
   border-radius: 0.4vw 0.4vw 0 0;
 }
+
 flap-bottom,
 flap-bottom-flip {
   bottom: 0;
@@ -58,61 +77,63 @@ flap-top-flip {
   transform-origin: 100% 100%;
   animation: flip-top-down 300ms ease-in;
 }
+
 flap-bottom-flip {
   display: none;
   transform-origin: 100% 0%;
   animation: flip-bottom-down 150ms ease-out;
 }
 
-flap-top > n,
-flap-top-flip > n {
+flap-top> n,
+flap-top-flip> n {
   top: 0;
 }
-flap-bottom > n,
-flap-bottom-flip > n {
+
+flap-bottom> n,
+flap-bottom-flip> n {
   bottom: 0;
 }
 
 @media screen and (min-width: 800px) {
   flap-top,
   flap-top-flip {
-    transform: translateY(-1px);
+      transform: translateY(-1px);
   }
   flap-bottom,
   flap-bottom-flip {
-    transform: translateY(1px);
+      transform: translateY(1px);
   }
-  flap-top > n,
-  flap-top-flip > n {
-    top: 1px;
+  flap-top> n,
+  flap-top-flip> n {
+      top: 1px;
   }
-  flap-bottom > n,
-  flap-bottom-flip > n {
-    bottom: 1px;
+  flap-bottom> n,
+  flap-bottom-flip> n {
+      bottom: 1px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   flap-top,
   flap-top-flip {
-    transform: translateY(-2px);
+      transform: translateY(-2px);
   }
   flap-bottom,
   flap-bottom-flip {
-    transform: translateY(2px);
+      transform: translateY(2px);
   }
-  flap-top > n,
-  flap-top-flip > n {
-    top: 2px;
+  flap-top> n,
+  flap-top-flip> n {
+      top: 2px;
   }
-  flap-bottom > n,
-  flap-bottom-flip > n {
-    bottom: 2px;
+  flap-bottom> n,
+  flap-bottom-flip> n {
+      bottom: 2px;
   }
 }
-
 /* Number
 ------------------------------------------------*/
+
 n {
   position: absolute;
   left: 0;
@@ -126,9 +147,9 @@ n {
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0)
 }
-
 /* Animations
 ------------------------------------------------*/
+
 @keyframes flip-top-down {
   0% {
     transform: rotateX(0);
@@ -139,10 +160,11 @@ n {
     background-color: black;
   }
 }
+
 @keyframes flip-bottom-down {
   0% {
     color: white;
-    background-color: rgb(30,30,30);
+    background-color: rgb(30, 30, 30);
     transform: rotateX(90deg);
   }
   100% {
@@ -164,7 +186,7 @@ n {
   @keyframes flip-bottom-down {
     0% {
       color: white;
-      background-color: rgb(30,30,30);
+      background-color: rgb(30, 30, 30);
       transform: translateY(1px) rotateX(90deg);
     }
     100% {
@@ -187,7 +209,7 @@ n {
   @keyframes flip-bottom-down {
     0% {
       color: white;
-      background-color: rgb(30,30,30);
+      background-color: rgb(30, 30, 30);
       transform: translateY(2px) rotateX(90deg);
     }
     100% {
